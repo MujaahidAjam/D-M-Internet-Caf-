@@ -15,7 +15,7 @@
   <style>
     :root {
       --primary: #FF6F61;
-      --secondary: #4CB5F5;
+      --secondary: #49e86e;
     }
 
     body {
@@ -67,7 +67,7 @@
     }
 
     .btn-whatsapp:hover {
-      background-color: #3AA3D3;
+      background-color: #38b8f3;
     }
 
     .hero {
@@ -95,52 +95,45 @@
       padding-bottom: 6rem !important;
     }
 
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
     .about-text p {
       font-size: 1.25rem;
     }
 
-    #showcase .card {
+    #pricing .card-title {
+      color: var(--primary);
+    }
+
+    #showcase .showcase-card {
+      flex: 0 1 22rem;
+      /* card width ≈ 350px */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    #showcase .card:hover {
-      transform: translateY(-8px);
+    #showcase .showcase-card:hover {
+      transform: translateY(-6px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
+    /* force all showcase images into a uniform box */
     #showcase .card-img-top {
-      transition: transform 0.3s ease;
-    }
-
-    #showcase .card:hover .card-img-top {
-      transform: scale(1.05);
-    }
-
-    .navbar .nav-link:hover {
-      color: #ADD8E6 !important;
-    }
-
-    #pricing .table-responsive {
-      overflow: visible;
-      /* allow shadows to show outside the container */
-    }
-
-    #pricing table tbody tr {
-      position: relative;
-      /* enable transform on the row */
-      z-index: 1;
-      /* ensure hovered row sits above neighbors */
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.2s ease;
-    }
-
-    #pricing table tbody tr:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      background-color: #f8f9fa;
-      /* subtle highlight */
+      width: 100%;
+      /* match card width */
+      height: 250px;
+      /* fixed height */
+      object-fit: cover;
+      /* crop & scale */
+      object-position: center center;
+      border-top-left-radius: .375rem;
+      border-top-right-radius: .375rem;
     }
   </style>
 </head>
@@ -149,10 +142,6 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="images/logo.jpg" alt="D&M Internet Café Logo">
-        <span>D&amp;M Internet Café</span>
-      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -196,15 +185,17 @@
     </div>
   </section>
 
-  <!-- Internet Café -->
+  <!-- Internet Café Section -->
   <section id="internet-usage" class="py-7 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Our Internet Café</h2>
+    <div class="container-fluid px-5">
+      <h2 class="text-center mb-5">Our Internet Café</h2>
       <div class="row align-items-center g-5">
+        <!-- Image on left -->
         <div class="col-lg-6 text-center">
           <img src="images/internetCafe.jpg" alt="Internet Café"
             class="img-fluid rounded shadow-sm w-75 mx-auto d-block">
         </div>
+        <!-- Text on right -->
         <div class="col-lg-6 about-text">
           <p>Connect at blazing speeds in our comfortable café area. Whether you’re working remotely, streaming, or
             gaming, enjoy reliable Wi-Fi, ergonomic seating, and a welcoming atmosphere. Hot beverages and light snacks
@@ -214,170 +205,247 @@
     </div>
   </section>
 
-  <!-- Pricing - Professional Table -->
+
+
+  <!-- Pricing: each item in its own card -->
   <section id="pricing" class="py-7 bg-white">
     <div class="container">
-      <h2 class="text-center mb-4">Pricing</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered align-middle">
-          <thead class="table-primary">
-            <tr>
-              <th>Service</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Copy &amp; Print (A4 B&amp;W) 1–20 pages</td>
-              <td>R2.00 / R3.00</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 B&amp;W) 21–50 pages</td>
-              <td>R1.70 / R2.70</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 B&amp;W) 51–100 pages</td>
-              <td>R1.50 / R2.50</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 B&amp;W) 101–500 pages</td>
-              <td>R1.40 / R2.30</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 B&amp;W) 501–1000 pages</td>
-              <td>R1.30 / R2.10</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 B&amp;W) 1001+ pages</td>
-              <td>R1.20 / R1.90</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 Colour) 1–20 pages</td>
-              <td>R3.00 / R4.00</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 Colour) 21–50 pages</td>
-              <td>R2.70 / R3.70</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 Colour) 51–100 pages</td>
-              <td>R2.50 / R3.50</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 Colour) 101–500 pages</td>
-              <td>R2.30 / R3.30</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 Colour) 501–1000 pages</td>
-              <td>R2.10 / R3.10</td>
-            </tr>
-            <tr>
-              <td>Copy &amp; Print (A4 Colour) 1001+ pages</td>
-              <td>R1.90 / R1.90</td>
-            </tr>
-            <tr>
-              <td>Binding - 6 mm</td>
-              <td>R27.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 8 mm</td>
-              <td>R28.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 10 mm</td>
-              <td>R29.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 12 mm</td>
-              <td>R31.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 16 mm</td>
-              <td>R34.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 19 mm</td>
-              <td>R37.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 25 mm</td>
-              <td>R42.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 32 mm</td>
-              <td>R47.50</td>
-            </tr>
-            <tr>
-              <td>Binding - 38 mm</td>
-              <td>R49.50</td>
-            </tr>
-            <tr>
-              <td>Laminating - A4</td>
-              <td>R8.50 / R8.00</td>
-            </tr>
-            <tr>
-              <td>Laminating - A3</td>
-              <td>R15.50 / R15.00</td>
-            </tr>
-            <tr>
-              <td>Laminating - A5</td>
-              <td>R7.50 / R7.00</td>
-            </tr>
-            <tr>
-              <td>Internet &amp; Computer Usage (per minute)</td>
-              <td>R0.50</td>
-            </tr>
-          </tbody>
-        </table>
+      <h2 class="text-center mb-5">Pricing</h2>
+      <div class="row">
+        <!-- Left column: all Copy & Print -->
+        <div class="col-md-6">
+          <h4 class="mb-4">Copy &amp; Print</h4>
+          <div class="row row-cols-1 g-4">
+            <!-- B&W tiers -->
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Black &amp; White<br><small>1–20 pages</small></h5>
+                  <p class="card-text">R2.00 / R3.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Black &amp; White<br><small>21–50 pages</small></h5>
+                  <p class="card-text">R1.70 / R2.70</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Black &amp; White<br><small>51–100 pages</small></h5>
+                  <p class="card-text">R1.50 / R2.50</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Black &amp; White<br><small>101–500 pages</small></h5>
+                  <p class="card-text">R1.40 / R2.30</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Black &amp; White<br><small>501–1000 pages</small></h5>
+                  <p class="card-text">R1.30 / R2.10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Black &amp; White<br><small>1001+ pages</small></h5>
+                  <p class="card-text">R1.20 / R1.90</p>
+                </div>
+              </div>
+            </div>
+            <!-- Colour tiers -->
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Colour<br><small>1–20 pages</small></h5>
+                  <p class="card-text">R3.00 / R4.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Colour<br><small>21–50 pages</small></h5>
+                  <p class="card-text">R2.70 / R3.70</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Colour<br><small>51–100 pages</small></h5>
+                  <p class="card-text">R2.50 / R3.50</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Colour<br><small>101–500 pages</small></h5>
+                  <p class="card-text">R2.30 / R3.30</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Colour<br><small>501–1000 pages</small></h5>
+                  <p class="card-text">R2.10 / R3.10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">A4 Colour<br><small>1001+ pages</small></h5>
+                  <p class="card-text">R1.90 / R1.90</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: Binding, Laminating & Usage -->
+        <div class="col-md-6">
+          <h4 class="mb-4">Binding &amp; Other Services</h4>
+          <div class="row row-cols-1 g-4">
+            <!-- Binding sizes -->
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Binding<br><small>6 mm</small></h5>
+                  <p class="card-text">R27.50</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Binding<br><small>8 mm</small></h5>
+                  <p class="card-text">R28.50</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Binding<br><small>10 mm</small></h5>
+                  <p class="card-text">R29.50</p>
+                </div>
+              </div>
+            </div>
+            <!-- …repeat for 12 mm, 16 mm, 19 mm, 25 mm, 32 mm, 38 mm… -->
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Binding<br><small>12 mm</small></h5>
+                  <p class="card-text">R31.50</p>
+                </div>
+              </div>
+            </div>
+            <!-- Laminating -->
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Laminating<br><small>A4</small></h5>
+                  <p class="card-text">R8.50 / R8.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Laminating<br><small>A3</small></h5>
+                  <p class="card-text">R15.50 / R15.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Laminating<br><small>A5</small></h5>
+                  <p class="card-text">R7.50 / R7.00</p>
+                </div>
+              </div>
+            </div>
+            <!-- Internet Usage -->
+            <div class="col">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Internet &amp;<br>Computer Usage</h5>
+                  <p class="card-text">R0.50 per min</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Showcase -->
-  <section id="showcase" class="py-7 bg-white">
+  <section id="showcase" class="py-7 bg-light">
     <div class="container-fluid px-5">
       <h2 class="text-center mb-5">Our Work</h2>
-      <div class="row g-5">
-        <div class="col-sm-6 col-lg-3">
-          <div class="card shadow-sm">
-            <img src="images/buisnessCards.jpg" class="card-img-top" alt="Business Cards">
-            <div class="card-body text-center">
-              <h5 class="card-title">Business Cards</h5>
-            </div>
+
+      <!-- flex-wrap container with gaps -->
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <!-- Card 1 -->
+        <div class="card shadow-sm showcase-card">
+          <img src="images/buisnessCards.jpg" class="card-img-top" alt="Business Cards">
+          <div class="card-body text-center">
+            <h5 class="card-title">Business Cards</h5>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card shadow-sm">
-            <img src="images/eventPosters.jpg" class="card-img-top" alt="Event Posters">
-            <div class="card-body text-center">
-              <h5 class="card-title">Event Posters</h5>
-            </div>
+
+        <!-- Card 2 -->
+        <div class="card shadow-sm showcase-card">
+          <img src="images/foodPoster.jpg" class="card-img-top" alt="Event Posters">
+          <div class="card-body text-center">
+            <h5 class="card-title">Event Posters</h5>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card shadow-sm">
-            <img src="images/giftBags.jpg" class="card-img-top" alt="Gift Bags">
-            <div class="card-body text-center">
-              <h5 class="card-title">Gift Bags</h5>
-            </div>
+
+        <!-- Card 3 -->
+        <div class="card shadow-sm showcase-card">
+          <img src="images/giftBags.jpg" class="card-img-top" alt="Gift Bags">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gift Bags</h5>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card shadow-sm">
-            <img src="images/card.jpg" class="card-img-top" alt="Photo Printing">
-            <div class="card-body text-center">
-              <h5 class="card-title">Photo Printing</h5>
-            </div>
+
+        <!-- Card 4 -->
+        <div class="card shadow-sm showcase-card">
+          <img src="images/eventPosters.jpg" class="card-img-top" alt="Photo Printing">
+          <div class="card-body text-center">
+            <h5 class="card-title">Photo Printing</h5>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+
   <!-- Contact -->
   <section id="contact" class="py-7">
     <div class="container text-center">
-      <h2 class="mb-4">Get in Touch</h2>
+      <div class="d-flex justify-content-center align-items-center mb-4">
+        <img src="images/logo.jpg" alt="D&M Internet Café Logo"
+          style="height:50px; border-radius:10px; margin-right:12px;" >
+        <h2 class="mb-0">Get in Touch</h2>
+      </div>
       <div class="d-flex justify-content-center gap-3 mb-3">
         <a href="mailto:dellahub70@gmail.com?subject=Enquiry%20at%20D%26M%20Internet%20Café&body=Hi%20there%2C%0A%0AI%20would%20like%20to%20ask%20about%20%5BYOUR%20QUESTION%5D.%0A%0AThanks%2C%0A%5BYour%20Name%5D"
           class="btn btn-primary">Email Us</a>
@@ -385,27 +453,10 @@
           class="btn btn-whatsapp"><i class="bi bi-whatsapp"></i> WhatsApp</a>
       </div>
       <p>Or call us: <a href="tel:+27849174189" class="text-decoration-none">+27 84 917 4189</a></p>
-      <div class="container d-flex justify-content-center align-items-center">
-        <img src="images/logo.jpg" alt="D&M Internet Café Logo" style="height:40px; border-radius:8px;">
-        <p class="mb-0 ms-2">© 2025 D&amp;M Internet Café. All Rights Reserved.</p>
-      </div>
     </div>
   </section>
-
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document
-        .querySelectorAll('#pricing td')
-        .forEach(cell => {
-          cell.innerHTML = cell.innerHTML.replace(
-            /R/g,
-            '<span class="text-success">R</span>'
-          );
-        });
-    });
-  </script>
 </body>
 
 </html>
